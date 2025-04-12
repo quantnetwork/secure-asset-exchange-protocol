@@ -1,0 +1,49 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Lock Assertion Message",
+    "type": "object",
+    "required": [
+        "messageType",
+        "sessionId",
+        "exchangeContextId",
+        "lockAssertionClaim",
+        "lockAssertionClaimFormat",
+        "lockAssertionExpiration",
+        "hashPrevMessage",
+        "clientSignature"
+    ],
+    "properties": {
+        "messageType": {
+            "description": "Must be lock-assert-msg.",
+            "type": "string"
+        },
+        "sessionId": {
+            "description": "The unique identifier of this messaging session between the two gateways.",
+            "type": "string"
+        },
+        "exchangeContextId": {
+            "description": "The unique identifier of this specific asset exchange.",
+            "type": "string"
+        },
+        "lockAssertionClaim": {
+            "description": "A claim about the status (i.e., the locking) of the asset in Network N1. What can be provided as claim is dependent on the network implementation and the locking method utilised.",
+            "type": "string"
+        },
+        "lockAssertionClaimFormat": {
+            "description": "The format of lockAssertionClaim.",
+            "type": "string"
+        },
+        "lockAssertionExpiration": {
+            "description": "The duration of the lock.",
+            "type": "string"
+        },
+        "hashPrevMessage": {
+            "description": "A hash of the Commence Response message.",
+            "type": "string"
+        },
+        "clientSignature": {
+            "description": "A digital signature of the message, produced by the message sender.",
+            "type": "string"
+        }
+    }
+}

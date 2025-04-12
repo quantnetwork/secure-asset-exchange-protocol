@@ -1,0 +1,44 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Commit Final Message",
+    "type": "object",
+    "required": [
+        "messageType",
+        "sessionId",
+        "exchangeContextId",
+        "assignmentAssertionClaim",
+        "assignmentAssertionClaimFormat",
+        "hashPrevMessage",
+        "clientSignature"
+    ],
+    "properties": {
+        "messageType": {
+            "description": "Must be commit-final-msg.",
+            "type": "string"
+        },
+        "sessionId": {
+            "description": "The unique identifier of this messaging session between the two gateways.",
+            "type": "string"
+        },
+        "exchangeContextId": {
+            "description": "The unique identifier of this specific asset exchange.",
+            "type": "string"
+        },
+        "assignmentAssertionClaim": {
+            "description": "A claim about the status (i.e., the assignment) of the asset in Network N1. What can be provided as claim is dependent on the network and the transfer method utilised.",
+            "type": "string"
+        },
+        "assignmentAssertionClaimFormat": {
+            "description": "The format of assignmentAssertionClaim.",
+            "type": "string"
+        },
+        "hashPrevMessage": {
+            "description": "A hash of the Commit Ready message.",
+            "type": "string"
+        },
+        "clientSignature": {
+            "description": "A digital signature of the message, produced by the message sender.",
+            "type": "string"
+        }
+    }
+}

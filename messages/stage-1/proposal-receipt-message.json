@@ -1,0 +1,44 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Proposal Receipt Message",
+    "type": "object",
+    "required": [
+        "version",
+        "messageType",
+        "sessionId",
+        "exchangeContextId",
+        "hashExchangeInitClaims",
+        "timestamp",
+        "serverSignature"
+    ],
+    "properties": {
+        "version": {
+            "description": "The version of the protocol to be used.",
+            "type": "string"
+        },
+        "messageType": {
+            "description": "Must be proposal-receipt-msg.",
+            "type": "string"
+        },
+        "sessionId": {
+            "description": "The unique identifier of this messaging session between the two gateways.",
+            "type": "string"
+        },
+        "exchangeContextId": {
+            "description": "The unique identifier of this specific asset exchange.",
+            "type": "string"
+        },
+        "hashExchangeInitClaims": {
+            "description": "A hash of exchangeInitClaims from the Exchange Proposal message.",
+            "type": "string"
+        },
+        "timestamp": {
+            "description": "The time that the Exchange Proposal was received.",
+            "type": "string"
+        },
+        "serverSignature": {
+            "description": "A digital signature of the message, produced by the message sender.",
+            "type": "string"
+        }
+    }
+}

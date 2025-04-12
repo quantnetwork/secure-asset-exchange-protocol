@@ -1,0 +1,39 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Exchange Commence Message",
+    "type": "object",
+    "required": [
+        "messageType",
+        "sessionId",
+        "exchangeContextId",
+        "hashExchangeInitClaims",
+        "hashPrevMessage",
+        "clientSignature"
+    ],
+    "properties": {
+        "messageType": {
+            "description": "Must be exchange-commence-msg.",
+            "type": "string"
+        },
+        "sessionId": {
+            "description": "The unique identifier of this messaging session between the two gateways.",
+            "type": "string"
+        },
+        "exchangeContextId": {
+            "description": "The unique identifier of this specific asset exchange.",
+            "type": "string"
+        },
+        "hashExchangeInitClaims": {
+            "description": "A hash of exchangeInitClaims from the Exchange Proposal message.",
+            "type": "string"
+        },
+        "hashPrevMessage": {
+            "description": "A hash of the Proposal Receipt message.",
+            "type": "string"
+        },
+        "clientSignature": {
+            "description": "A digital signature of the message, produced by the message sender.",
+            "type": "string"
+        }
+    }
+}
