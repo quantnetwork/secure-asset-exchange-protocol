@@ -1,0 +1,136 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Exchange Proposal Message",
+    "type": "object",
+    "required": [
+        "version",
+        "messageType",
+        "sessionId",
+        "exchangeContextId",
+        "exchangeInitClaims",
+        "exchangeInitClaimsFormat",
+        "networkCapabilitiesList",
+        "clientSignature"
+    ],
+    "properties": {
+        "version": {
+            "description": "The version of the protocol to be used.",
+            "type": "string"
+        },
+        "messageType": {
+            "description": "Must be exchange-proposal-msg.",
+            "type": "string"
+        },
+        "sessionId": {
+            "description": "The unique identifier of this messaging session between the two gateways.",
+            "type": "string"
+        },
+        "exchangeContextId": {
+            "description": "The unique identifier of this specific asset exchange.",
+            "type": "string"
+        },
+        "exchangeInitClaims": {
+            "description": "An Exchange Initialisation Claim object specifies the details of an asset that are necessary for the exchange, including a unique asset ID, details of the asset's current ownership and details of its intended beneficiary. Since an exchange involves two assets, two Exchange Initialisation Claim objects must be included in the exchangeInitClaims parameter.",
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/exchangeInitClaim"
+            }
+        },
+        "exchangeInitClaimsFormat": {
+            "description": "The format of exchangeInitClaims.",
+            "type": "string"
+        },
+        "networkCapabilitiesList": {
+            "description": "A list of technical properties per gateway and network (e.g., lock mechanism and expiration time), used by a gateway to determine whether it will be able to process an exchange with the other party.",
+            "type": "string"
+        },
+        "clientSignature": {
+            "description": "A digital signature of the message, produced by the message sender.",
+            "type": "string"
+        }
+    },
+    "definitions": {
+        "exchangeInitClaim": {
+            "description": "An Exchange Initialisation Claim object specifies the details of an asset that are necessary for the exchange, including a unique asset ID, details of the asset's current ownership and details of its intended beneficiary",
+            "type": "object",
+            "required": [
+                "digitalAssetId",
+                "assetProfileId",
+                "verifiedOriginatorEntityId",
+                "verifiedBeneficiaryEntityId",
+                "originatorPubkey",
+                "beneficiaryPubkey",
+                "senderGatewaySignaturePublicKey",
+                "receiverGatewaySignaturePublicKey",
+                "senderGatewayNetworkId",
+                "recipientGatewayNetworkId"
+            ],
+            "properties": {
+                "digitalAssetId": {
+                    "description": "The unique identifier of the asset.",
+                    "type": "string"
+                },
+                "assetProfileId": {
+                    "description": "The unique identifier of the asset profile, i.e., an asset type definition.",
+                    "type": "string"
+                },
+                "verifiedOriginatorEntityId": {
+                    "description": "The unique identifier of the entity that is the current owner of the asset.",
+                    "type": "string"
+                },
+                "verifiedBeneficiaryEntityId": {
+                    "description": "The unique identifier of the entity that is the intended beneficiary of the asset.",
+                    "type": "string"
+                },
+                "originatorPubkey": {
+                    "description": "The public key of the entity specified in verifiedOriginatorEntityId.",
+                    "type": "string"
+                },
+                "beneficiaryPubkey": {
+                    "description": "The public key of the entity specified in verifiedBeneficiaryEntityId.",
+                    "type": "string"
+                },
+                "senderGatewaySignaturePublicKey": {
+                    "description": "The public key associated with the private key used by Gateway G1 to sign assertions and receipts.",
+                    "type": "string"
+                },
+                "receiverGatewaySignaturePublicKey": {
+                    "description": "The public key associated with the private key used by Gateway G2 to sign assertions and receipts.",
+                    "type": "string"
+                },
+                "senderGatewayId": {
+                    "description": "The unique identifier of Gateway G1.",
+                    "type": "string"
+                },
+                "recipientGatewayId": {
+                    "description": "The unique identifier of Gateway G2.",
+                    "type": "string"
+                },
+                "senderGatewayNetworkId": {
+                    "description": "The unique identifier of Network N1.",
+                    "type": "string"
+                },
+                "recipientGatewayNetworkId": {
+                    "description": "The unique identifier of Network N2.",
+                    "type": "string"
+                },
+                "senderGatewayDeviceIdentityPubkey": {
+                    "description": "The device public key of Gateway G1.",
+                    "type": "string"
+                },
+                "receiverGatewayDeviceIdentityPubkey": {
+                    "description": "The device public key of Gateway G2.",
+                    "type": "string"
+                },
+                "senderGatewayOwnerId": {
+                    "description": "The identifier of the owner/operator of Gateway G1.",
+                    "type": "string"
+                },
+                "receiverGatewayOwnerId": {
+                    "description": "The identifier of the owner/operator of Gateway G2.",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,39 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Exchange Complete Message",
+    "type": "object",
+    "required": [
+        "messageType",
+        "sessionId",
+        "exchangeContextId",
+        "hashPrevMessage",
+        "hashExchangeCommence",
+        "clientSignature"
+    ],
+    "properties": {
+        "messageType": {
+            "description": "Must be commit-exchange-complete-msg.",
+            "type": "string"
+        },
+        "sessionId": {
+            "description": "The unique identifier of this messaging session between the two gateways.",
+            "type": "string"
+        },
+        "exchangeContextId": {
+            "description": "The unique identifier of this specific asset exchange.",
+            "type": "string"
+        },
+        "hashPrevMessage": {
+            "description": "A hash of the Commit Final Receipt message.",
+            "type": "string"
+        },
+        "hashExchangeCommence": {
+            "description": "A hash of the Exchange Commence message.",
+            "type": "string"
+        },
+        "clientSignature": {
+            "description": "A digital signature of the message, produced by the message sender.",
+            "type": "string"
+        }
+    }
+}
