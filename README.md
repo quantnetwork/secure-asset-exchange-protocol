@@ -8,3 +8,7 @@ A potential use case of SAEP is to swap central bank digital currencies (CBDCs) 
 ## Secure Asset Exchange Protocol Message Definitions
 
 The messages and parameters of SAEP are based on the messages and parameters defined in [SATP](https://datatracker.ietf.org/doc/draft-ietf-satp-core/).
+
+## IETF Link
+
+This SAEP proposal to IETF is in the draft stage and can currently be found here: [https://github.com/ietf-satp/draft-marstein-satp-asset-exchange](https://github.com/ietf-satp/draft-marstein-satp-asset-exchange).
