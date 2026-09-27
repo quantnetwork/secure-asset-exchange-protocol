@@ -32,6 +32,8 @@
         "exchangeInitClaims": {
             "description": "An Exchange Initialisation Claim object specifies the details of an asset that are necessary for the exchange, including a unique asset ID, details of the asset's current ownership and details of its intended beneficiary. Since an exchange involves two assets, two Exchange Initialisation Claim objects must be included in the exchangeInitClaims parameter.",
             "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
             "items": {
                 "$ref": "#/definitions/exchangeInitClaim"
             }
