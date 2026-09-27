@@ -12,3 +12,14 @@ The messages and parameters of SAEP are based on the messages and parameters def
 ## IETF Link
 
 This SAEP proposal to IETF is in the draft stage and can currently be found here: [https://github.com/ietf-satp/draft-marstein-satp-asset-exchange](https://github.com/ietf-satp/draft-marstein-satp-asset-exchange).
+
+## Schema tests
+
+Run the exchange proposal validation tests from the repository root:
+
+```sh
+python -m pip install jsonschema==4.26.0
+python -B -m unittest discover -s tests -v
+```
+
+The tests use synthetic messages to check JSON Schema validation only.
